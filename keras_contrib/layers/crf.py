@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 from __future__ import division
 
-import tensrflow as tf
+import tensorflow as tf
 
 import warnings
 
