@@ -1,6 +1,8 @@
 from __future__ import absolute_import
 from __future__ import division
 
+import tensrflow as tf
+
 import warnings
 
 from keras import backend as K
@@ -460,7 +462,7 @@ class CRF(Layer):
             if K.backend() == 'theano':
                 m = states[3][:, t:(t + 2)]
             else:
-                m = K.slice(states[3], [0, t], [-1, 2])
+                m = tf.slice(states[3], [0, t], [-1, 2])
             input_energy_t = input_energy_t * K.expand_dims(m[:, 0])
             # (1, F, F)*(B, 1, 1) -> (B, F, F)
             chain_energy = chain_energy * K.expand_dims(
